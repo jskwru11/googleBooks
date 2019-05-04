@@ -1,0 +1,24 @@
+<section>
+    <mat-card class="center-text add-padding">
+      <mat-card-content>
+        <h2>(Angular) Google Books Search</h2>
+        <h5>Search for and Save Books of Interest</h5>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card class="center-text add-padding" id="resultPannel">
+      <mat-card-title>Results</mat-card-title>
+        <mat-card-content>
+          <mat-card class="book-card" *ngFor="let book of books; let i = index;">
+            <mat-card-title >
+              {{ book.volumeInfo.title}}
+          </mat-card-title>
+          <mat-card-content>
+              <p>Search for and Save Books of Interest</p>
+          </mat-card-content>
+          </mat-card>
+
+        </mat-card-content>
+      </mat-card>
+  </section>
+  

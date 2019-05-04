@@ -1,0 +1,47 @@
+<section>
+  <mat-card class="center-text add-padding">
+    <mat-card-content>
+      <p>(Angular) Google Books Search</p>
+      <p>Search for and Save Books of Interest</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="add-padding" id="searchPanel">
+    <mat-card-title>Book Search</mat-card-title>      
+    <mat-card-content>
+      <form 
+      [formGroup]="searchForm"
+      (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input matInput 
+            type="search" 
+            placeholder="Book"
+            formControlName="search">
+            <button 
+            type="submit" 
+            mat-button 
+            matSuffix 
+            aria-label="search">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    </mat-card>
+
+    <mat-card class="center-text add-padding" id="resultPannel">
+      <mat-card-title>Results</mat-card-title>
+        <mat-card-content>
+          <mat-card class="book-card" *ngFor="let book of books; let i = index;">
+            <mat-card-title >
+              {{ book.volumeInfo.title}}
+          </mat-card-title>
+          <mat-card-content>
+              <p>Search for and Save Books of Interest</p>
+          </mat-card-content>
+          </mat-card>
+
+        </mat-card-content>
+      </mat-card>
+</section>
+

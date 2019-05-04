@@ -1,0 +1,19 @@
+.center-text {
+    text-align: center;
+}
+
+.add-padding {
+    padding: 60px;
+}
+
+#searchPanel {
+    margin-top: 60px;
+}
+
+#resultPannel {
+    margin-top: 60px;
+}
+
+.book-card {
+    margin: 15px;
+}

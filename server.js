@@ -23,7 +23,7 @@ const bookSchema = Schema({
     author: String,
     url: String,
     image: String,
-    id: String,
+    idTag: String,
     description: String
 });
 
@@ -44,7 +44,7 @@ app.post('/api/books', (req, res) => {
 });
 
 app.delete('/api/books/:id', (req, res) => {
-    Book.findByIdAndDelete({id: req.params.id})
+    Book.findByIdAndDelete({idTag: req.params.id})
         .then(results => {
             res.json(results)
         })

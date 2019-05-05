@@ -43,8 +43,8 @@ app.post('/api/books', (req, res) => {
     res.json({"message": "book successfully saved..."})
 });
 
-app.delete('/api/books/:id', (req, res) => {
-    Book.findByIdAndDelete({idTag: req.params.id})
+app.delete('/api/books/:_id', (req, res) => {
+    Book.findByIdAndDelete(eq.params._id)
         .then(results => {
             res.json(results)
         })

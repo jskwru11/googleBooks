@@ -27,10 +27,6 @@ const bookSchema = Schema({
 
 const Book = mongoose.model('Book', bookSchema);
 
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/dist/google-books/index.html'));
-});
-
 app.get('/api/books', (req, res) => {
     Book.find()
         .then(data => {
@@ -52,5 +48,9 @@ app.delete('/api/books/:id', (req, res) => {
         })
         .catch(error => console.log(error))
 })
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/dist/google-books/index.html'));
+});
 
 app.listen(PORT, () => console.log(`Server currently listening @ 'http://localhost:${PORT}/`));

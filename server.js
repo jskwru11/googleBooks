@@ -23,7 +23,6 @@ const bookSchema = Schema({
     author: String,
     url: String,
     image: String,
-    idTag: String,
     description: String
 });
 

@@ -33,16 +33,22 @@
       <mat-card-title>Results</mat-card-title>
         <mat-card-content>
           <mat-card class="book-card" *ngFor="let book of books; let i = index;">
+            <img [src]="book.volumeInfo.imageLinks.smallThumbnail" mat-card-image>
             <mat-card-title >
               {{ book.volumeInfo.title}}
           </mat-card-title>
           <mat-card-content>
-              <p>Search for and Save Books of Interest</p>
-              <button mat-icon-button><mat-icon>remove_red_eye</mat-icon></button>
-              <button mat-icon-button><mat-icon>save</mat-icon></button>
+              <p>{{book.volumeInfo.description}}</p>
+              <p>written by: {{book.volumeInfo.authors[0]}}</p>
+              <button 
+              mat-icon-button
+              ><a [href]="book.volumeInfo.infoLink" target="_blank"><mat-icon>remove_red_eye</mat-icon></a></button>
+              <button 
+              (click)="onSave(i)" 
+              mat-icon-button
+              ><mat-icon>save</mat-icon></button>
           </mat-card-content>
           </mat-card>
-
         </mat-card-content>
       </mat-card>
 </section>

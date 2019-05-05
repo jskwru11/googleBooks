@@ -9,8 +9,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  books: Observable<any>;
+  books;
   searchForm: FormGroup;
+  savedBooks;
 
   constructor(private http: HttpService) { }
 
@@ -23,6 +24,12 @@ export class SearchComponent implements OnInit {
   onSubmit() {
     this.http.getbooks(this.searchForm.value.search)
       .subscribe(book => this.books = book["items"]);
+  }
+
+  onSave(index: number) {
+    const savebook = this.books.volumeInfo[index];
+    this.http.postBook(savebook)
+      .subscribe(book => this.savedBooks = book);
   }
 
 }

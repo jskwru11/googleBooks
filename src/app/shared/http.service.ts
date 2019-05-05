@@ -10,8 +10,37 @@ export class HttpService {
 
   getbooks(search: string) {
     const URL = `https://cors-anywhere.herokuapp.com/https://www.googleapis.com/books/v1/volumes?q=`;
-    const searchObj: String = search;
+    let searchObj: string[] = search.toLowerCase().split('');
+    const allowedChar = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    const newSearchObj = [];
 
-    return this.http.get(URL + searchObj);
+    searchObj.forEach(char => {
+      if (char === ' ') {
+        newSearchObj.push('%20');
+      } else if (allowedChar.indexOf(char) > -1) {
+        newSearchObj.push(char)
+      }
+    })
+
+    return this.http.get(URL + newSearchObj.join(''));
   }
+
+  getSavedBooks() {
+    const url = '/api/books';
+    return this.http.get(url);
+  }
+
+  postBook(data: any) {
+    const url = '/api/books';
+
+    return this.http.post(url, data);
+  }
+
+  delBook(id: number) {
+    const url = `/api/books/:${id}`;
+
+    return this.http.delete(url);
+  }
+
+
 }

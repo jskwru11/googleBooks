@@ -33,7 +33,8 @@ export class SearchComponent implements OnInit {
       title: savebook.volumeInfo.title,
       author: savebook.volumeInfo.authors[0],
       image: savebook.volumeInfo.imageLinks.smallThumbnail,
-      url: savebook.volumeInfo.infoLink
+      url: savebook.volumeInfo.infoLink,
+      description: savebook.volumeInfo.description
     };
     this.http.postBook(dataObj)
       .subscribe(book => this.savedBooks = book);

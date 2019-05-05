@@ -12,14 +12,14 @@
           <mat-card class="book-card" *ngFor="let book of books; let i = index;">
               <img [src]="book.volumeInfo.imageLinks.smallThumbnail" mat-card-image>
               <mat-card-title >
-                {{ book.volumeInfo.title}}
+                {{ book.title}}
             </mat-card-title>
             <mat-card-content>
-                <p>{{book.volumeInfo.description}}</p>
-                <p>written by: {{book.volumeInfo.authors[0]}}</p>
+                <p>{{book.description}}</p>
+                <p>written by: {{book.author}}</p>
               <button 
               mat-icon-button
-              ><a href="book.infoLink" target="_blank"><mat-icon>remove_red_eye</mat-icon></a></button>
+              ><a href="book.image" target="_blank"><mat-icon>remove_red_eye</mat-icon></a></button>
               <button 
               mat-icon-button
               (click)="onRemove(i)"><mat-icon>delete</mat-icon></button>

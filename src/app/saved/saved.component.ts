@@ -17,7 +17,7 @@ export class SavedComponent implements OnInit {
   }
 
   onRemove(index: number) {
-    const delBook = this.books[index]._id;
+    const delBook = this.books[index].id;
     this.http.delBook(delBook)
     .subscribe(data => console.log(data))
   }

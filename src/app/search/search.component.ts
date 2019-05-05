@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
   }
 
   onSave(index: number) {
-    const savebook = this.books.volumeInfo[index];
+    const savebook = this.books[index];
     this.http.postBook(savebook)
       .subscribe(book => this.savedBooks = book);
   }

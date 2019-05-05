@@ -22,7 +22,8 @@ const bookSchema = Schema({
     title: String,
     author: String,
     url: String,
-    image: String
+    image: String,
+    id: String
 });
 
 const Book = mongoose.model('Book', bookSchema);

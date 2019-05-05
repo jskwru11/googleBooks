@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
   onSave(index: number) {
     const savebook = this.books[index];
     const dataObj = {
-      id: savebook.id,
+      idTag: savebook.id,
       title: savebook.volumeInfo.title,
       author: savebook.volumeInfo.authors[0],
       image: savebook.volumeInfo.imageLinks.smallThumbnail,

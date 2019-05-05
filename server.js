@@ -44,7 +44,7 @@ app.post('/api/books', (req, res) => {
 });
 
 app.delete('/api/books/:_id', (req, res) => {
-    Book.findByIdAndDelete(eq.params._id)
+    Book.findByIdAndDelete(req.params._id)
         .then(results => {
             res.json(results)
         })

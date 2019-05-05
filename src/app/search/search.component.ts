@@ -28,8 +28,14 @@ export class SearchComponent implements OnInit {
 
   onSave(index: number) {
     const savebook = this.books[index];
-    console.log(savebook);
-    this.http.postBook(savebook)
+    const dataObj = {
+      id: savebook.id,
+      title: savebook.volumeInfo.title,
+      author: savebook.volumeInfo.authors[0],
+      image: savebook.volumeInfo.imageLinks.smallThumbnail,
+      url: savebook.volumeInfo.infoLink
+    };
+    this.http.postBook(dataObj)
       .subscribe(book => this.savedBooks = book);
   }
 

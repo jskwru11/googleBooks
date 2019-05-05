@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname + '/dist/googlebooks')));
+app.use(express.static(path.join(__dirname + '/dist/google-books')));
 
 const baseUrl = process.env.MONGOLAB_URI;
 
@@ -28,7 +28,7 @@ const bookSchema = Schema({
 const Book = mongoose.model('Book', bookSchema);
 
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/dist/googlebooks/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/google-books/index.html'));
 });
 
 app.get('/api/books', (req, res) => {

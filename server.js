@@ -42,17 +42,13 @@ app.post('/api/books', (req, res) => {
     res.json({"message": "book successfully saved..."})
 });
 
-app.delete('/api/books/', (req, res) => {
+app.delete('/api/books/:_id', (req, res) => {
 
-    Book.remove({})
-        .then(results => res.json(results))
-        .catch(errors => console.log(error));
-
-    // Book.deleteOne(ObjectId.fromString(req.params._id))
-    //     .then(results => {
-    //         res.json(results)
-    //     })
-    //     .catch(error => console.log(error))
+    Book.findByIdAndDelete(req.params._id)
+        .then(results => {
+            res.json(results)
+        })
+        .catch(error => console.log(error))
 })
 
 app.get('/*', (req, res) => {

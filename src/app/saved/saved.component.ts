@@ -20,7 +20,7 @@ export class SavedComponent implements OnInit {
     const delBook = this.books[index]._id;
     this.http.delBook(delBook)
     .subscribe(data => console.log(data))
-    this.books[index] = '';
+    this.books.splice(index, 1);
   }
 
 

@@ -44,7 +44,7 @@ app.post('/api/books', (req, res) => {
 
 app.delete('/api/books/:_id', (req, res) => {
     console.log(req.params._id);
-    Book.deleteOne(req.params._id)
+    Book.deleteOne(mongoose.Types.ObjectId(req.params._id))
         .then(results => {
             res.json(results)
         })

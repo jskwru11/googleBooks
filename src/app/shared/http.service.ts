@@ -38,7 +38,7 @@ export class HttpService {
 
   delBook(id: number) {
     console.log(id)
-    const url = `/api/books/:${id}`;
+    const url = `/api/books`;
 
     return this.http.delete(url);
   }
